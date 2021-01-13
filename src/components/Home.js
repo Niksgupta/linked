@@ -38,7 +38,7 @@ function Home({user}){
         <h3> <span>Snow</span></h3>
       </div>
       <div className="right_area">
-        <a href="#" class="logout_btn" onClick = {logout}>Logout</a>
+        <a href="/" class="logout_btn" onClick = {logout}>Logout</a>
       </div>
     </header>
 

@@ -85,17 +85,17 @@ function Main({user}) {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
 
-  const login = (event)=>{
-    event.preventDefault();
+  // const login = (event)=>{
+  //   event.preventDefault();
 
-    auth.signInWithEmailAndPassword(email, password)
-    .then((auth)=>{
-      console.log(auth)
-      history.push("/Home")
-    }).catch((e)=>{
-      alert(e.message);
-    })
-  }
+  //   auth.signInWithEmailAndPassword(email, password)
+  //   .then((auth)=>{
+  //     console.log(auth)
+  //     history.push("/Home")
+  //   }).catch((e)=>{
+  //     alert(e.message);
+  //   })
+  // }
   
   const regHome = (event)=>{
     event.preventDefault();

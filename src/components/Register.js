@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {useHistory, Link} from "react-router-dom"
 import {Form, Button, Col} from "react-bootstrap"
 import { auth } from "./firebase";
-import Home from "./Home"
 
 function Register(){
    
