@@ -1,0 +1,80 @@
+/* .head {
+  float: left;
+} */
+
+.head {
+  margin-left: 30px;
+  margin-right: 40px;
+  margin-top: 20px;
+  padding-top: 10px;
+  float: right;
+}
+.img-logo {
+  height: 50px;
+  margin-top: 30px;
+  margin-left: 44px;
+  margin-right: 40px;
+}
+.bigdiv {
+  /* background: #416e9b; */
+  background-color: rgb(245, 243, 235);
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #133783;
+}
+
+.contentbro {
+  background: linear-gradient(#fff, #d9ddeb);
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.content-1 {
+  margin-top: 7px;
+  float: left;
+}
+.text-p {
+  margin-top: 6px;
+  margin-left: 30px;
+  color: black;
+}
+.link {
+  color: black;
+  margin-bottom: 3px;
+  text-decoration: white;
+  font-weight: bold;
+}
+.connect-img {
+  width: 280px;
+  margin-left: 30px;
+}
+
+.content-2 {
+  float: right;
+  margin-top: 9px;
+  margin-right: 10px;
+}
+.account {
+  margin-left: 30px;
+  margin-right: 40px;
+  margin-top: 20px;
+  padding-top: 10px;
+}
+.label {
+  /* color:#007BFF; */
+  color: black;
+  color: lightslategray;
+}
+
+.xx {
+  margin-bottom: -25px;
+}
+
+.agree {
+  margin-left: 10px;
+  color: lightslategray;
+}
