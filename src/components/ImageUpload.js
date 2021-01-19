@@ -41,11 +41,11 @@ function ImageUpload() {
         document.getElementsByClassName('postButton').disabled = true;
         document.getElementsByClassName('postButton')[0].classList.add('disabled');
 
-        if (caption == "" && imageURL == "") {
+        if (caption === "" && imageURL === "") {
             console.log("Prevented Access to Photo or Caption Submission")
         } else {
             event.preventDefault();
-            if (imageURL == '') {
+            if (imageURL === '') {
                 db.collection("posts").add({
                     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                     caption: caption,
@@ -104,23 +104,26 @@ function ImageUpload() {
                         <textarea value={caption} onChange={(e) => setCaption(e.target.value)} rows="4" placeholder={`What's on your mind, ${user?.displayName}?`} />
                     </div>
                     <div class={`previewImage ${!image && "vanish"}`}>
-                        <img src={imageURL} className="previewImaage" />
+                        <img src={imageURL} alt ="preview" className="previewImaage" />
                     </div>
 
                     <progress value={progress} className="hidden" max="100" />
 
                     <div className="add-image">
                     <img src={photo}
+                            alt = "photo"
                             className="photo-icon" 
                             onClick= {uploadFileWithClick} />
 
                     <img src={video}
-                                    className="photo-icon" 
-                                    onClick= {uploadFileWithClick} />
+                            alt = "video"
+                            className="photo-icon" 
+                            onClick= {uploadFileWithClick} />
 
                     <img src={event}
-                                    className="photo-icon" 
-                                    onClick= {uploadFileWithClick} />                
+                            alt = "article"
+                            className="photo-icon" 
+                            onClick= {uploadFileWithClick} />                
                     </div>
                     <div className="naming">
                         <h6>Photo</h6>
@@ -131,7 +134,7 @@ function ImageUpload() {
                     <button onClick={handleUpload} 
                     
                     type="submit" 
-                    class={`postButton ${caption.length < 1 && "disabled"} ${imageURL != "" && "visible"}`}>Post</button>
+                    class={`postButton ${caption.length < 1 && "disabled"} ${imageURL !== "" && "visible"}`}>Post</button>
             
         </div>
     )

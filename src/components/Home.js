@@ -28,9 +28,7 @@ function Home({ user }) {
     });
   }, []);
 
-  const remove = (id) =>{
-        setPosts(posts.filter((post) => post.id !== id ))
-  }
+ 
 
   const history = useHistory("");
   if (user === false) {
