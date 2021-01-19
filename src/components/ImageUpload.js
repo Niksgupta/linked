@@ -111,7 +111,7 @@ function ImageUpload() {
 
                     <div className="add-image">
                     <img src={photo}
-                            alt = "upload photo"
+                            alt = "upload"
                             className="photo-icon" 
                             onClick= {uploadFileWithClick} />
 
