@@ -1,12 +1,10 @@
 import { Avatar } from '@material-ui/core'
 import React from 'react'
-import {useHistory} from "react-router-dom"
 import "./Left.css"
 
 
 function Leftside({user}) {
 
-    const history = useHistory('');
     return (
         <div className ="leftbar">
           <div className ="leftbar-1">

@@ -1,33 +1,49 @@
-import React from "react";
-import {useHistory} from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "firebase/auth";
 import "firebase/firestore";
-import { Avatar } from '@material-ui/core'
-
-import { auth } from "./firebase";
-// import Leftside from "./Leftside";
+import { Avatar } from "@material-ui/core";
+import Render from "./Render";
+import { auth, db } from "./firebase";
 import "./Main.css";
-import "../App.css"
-import "./cool.css"
-import "./Left.css"
+import "../App.css";
+import "./Home.css";
+import "./Left.css";
+import ImageUpload from "./ImageUpload";
 
+function Home({ user }) {
+  
+  const [posts, setPosts] = useState([]);
+  
 
-function Home({user}){
-   const history = useHistory('');
-   if (user === false){
-     history.push("/Login")
-   }
+  useEffect(() => {
+    db.collection("posts").onSnapshot((snapshot) => {
+      setPosts(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      );
+      console.log({ snapshot });
+    });
+  }, []);
 
-  const logout =(event)=>{
-    auth.signOut();
-    history.push("/Login")
-
+  const remove = (id) =>{
+        setPosts(posts.filter((post) => post.id !== id ))
   }
 
+  const history = useHistory("");
+  if (user === false) {
+    history.push("/Login");
+  }
 
-   
-  return(
-    
+  const logout = (event) => {
+    auth.signOut();
+    history.push("/Login");
+  };
+
+  return (
+
     <div className="App">
     
     <header>
@@ -35,7 +51,7 @@ function Home({user}){
         <i className="fas fa-bars" id="sidebar_btn"></i>
       </label>
       <div className="left_area">
-        <h3> <span>Snow</span></h3>
+        <h3> <span>LinkedIn Lite</span></h3>
       </div>
       <div className="right_area">
         <a href="/" class="logout_btn" onClick = {logout}>Logout</a>
@@ -62,11 +78,7 @@ function Home({user}){
              <p className="view">Who viewed your profile - <span className="ptag">2230</span></p>
      <p className="view">Views on your post - <span className="ptag">1089</span></p>
       </div>
-      {/* <i class="fas fa-desktop"></i><span className="ptag">Who viewed your profile - 2000 </span>
       
-      <i class="fas fa-desktop"></i><span  className ="view" className="ptag">Views on your post - 100</span> */}
-     {/* <p className="view">Who viewed your profile - <span className="ptag">2230</span></p>
-     <p className="view">Views on your post - <span className="ptag">1089</span></p> */}
      <div className="leftbar-bottom">
      <hr />
 
@@ -83,21 +95,22 @@ function Home({user}){
     
 
     <div className="content">
-      <div className="card">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-      </div>
-      <div className="card">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-      </div>
-      <div className="card">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-      </div>
+    <ImageUpload user={user} />
+    {posts.map((post) => (
+                    <Render
+                      key={post.id}
+                      username={post.data.username}
+                      caption={post.data.caption}
+                      imageUrl = {post.data.imageUrl}
+                    />
+
+                  ))}
+                  
+
     </div>
 
 
      </div>
- 
-
-  )
+  );
 }
 export default Home;

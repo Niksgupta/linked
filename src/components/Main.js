@@ -1,12 +1,10 @@
 import React, {useState} from 'react'
 import "firebase/auth";
 import "firebase/firestore";
-// import {Form, Col, Button} from "react-bootstrap";
 import {useHistory, Link} from "react-router-dom"
 import {Form} from "react-bootstrap"
 import {auth} from "./firebase"
-// import Login from "./Login"
-// import connect from "../assets/connect.jpg"
+
 import "./Main.css";
 import "../App.css"
 import Button from '@material-ui/core/Button';
@@ -14,8 +12,7 @@ import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Checkbox from '@material-ui/core/Checkbox';
+
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -50,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -74,8 +71,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
-
 function Main({user}) {
   const classes = useStyles();
 
@@ -85,17 +80,7 @@ function Main({user}) {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
 
-  // const login = (event)=>{
-  //   event.preventDefault();
-
-  //   auth.signInWithEmailAndPassword(email, password)
-  //   .then((auth)=>{
-  //     console.log(auth)
-  //     history.push("/Home")
-  //   }).catch((e)=>{
-  //     alert(e.message);
-  //   })
-  // }
+ 
   
   const regHome = (event)=>{
     event.preventDefault();
