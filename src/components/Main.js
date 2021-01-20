@@ -207,7 +207,7 @@ function Main({user}) {
       </div>
       <Box mt={5}>
         <div className="footer">
-          <h6>Made by <a href="https://github.com/Niksgupta" target="_blank">NiksGupta ❤️</a></h6>
+          <h6>Made by <a href="https://github.com/Niksgupta" target="_blank" rel="noreferrer">NiksGupta ❤️</a></h6>
         </div>
         
       </Box>
