@@ -105,7 +105,6 @@ function Render( {user, postId, username, caption, imageUrl, timestamp}) {
         image={imageUrl}
         title={username}
       />
-      <hr/>
         <div className="post_comments">
           {
             comments.map((comment) =>(
