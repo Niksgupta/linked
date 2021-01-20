@@ -78,9 +78,8 @@ function Home({ user }) {
 
     <div className="mobile_nav">
       <div className="nav_bar">
-      <Avatar className= "avatar" className={classes.orange} />
+      <Avatar className={classes.orange} />
              <h4>{user?.displayName}</h4>
-        <i className="fa fa-bars nav_btn"></i>
        </div>
 
     </div>
@@ -90,7 +89,7 @@ function Home({ user }) {
       <div className="leftbar-1">
       <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGgcI19mU4f72SdJxV-ztMOjzQaUOYbpMFIA&usqp=CAU" 
             alt="" />
-      <Avatar className= "avatar"  
+      <Avatar   
       className={classes.orange}/>
              <h4>{user?.displayName}</h4>
              <h5>{user?.email}</h5>
