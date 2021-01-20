@@ -93,7 +93,7 @@ function Render( {user, postId, username, caption, imageUrl, timestamp}) {
     <Card className={classes.root}>
       <div className="avatar1">
         <Avatar className={classes.orange} />
-        <h5><strong>{username}</strong></h5>
+        <h5>{username}</h5>
       </div>
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
@@ -108,9 +108,9 @@ function Render( {user, postId, username, caption, imageUrl, timestamp}) {
         <div className="post_comments">
           {
             comments.map((comment) =>(
-              <p>
-                <strong>{comment.username}</strong>
-                <span> {comment.text}</span>
+              <p className="post_comments1">
+                {comment.username}
+                <span className="comment-text"> {comment.text}</span>
               </p>
             ))
           }
