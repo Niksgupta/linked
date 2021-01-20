@@ -217,7 +217,10 @@ function Main({user}) {
         </form>
       </div>
       <Box mt={5}>
-        <Copyright />
+        <div className="footer">
+          <h6>Made by <Link to ="https://github.com/Niksgupta">NiksGupta ❤️</Link></h6>
+        </div>
+        
       </Box>
     </Container>
     </div>

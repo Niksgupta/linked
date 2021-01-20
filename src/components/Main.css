@@ -76,4 +76,10 @@
     margin-left: 10px;
     color: lightslategray;
   }
-  
+  .footer{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    text-align: center;
+    font-weight: 900;
+  }
