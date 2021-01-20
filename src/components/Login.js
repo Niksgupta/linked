@@ -25,17 +25,7 @@ import "./Main.css";
 import "../App.css"
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="#">
-        Made with Love
-      </Link>{' '}
-      {'.'}
-    </Typography>
-  );
-}
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
