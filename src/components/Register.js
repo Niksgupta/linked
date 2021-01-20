@@ -61,7 +61,7 @@ function Register(){
               // id="firstname"
               name="firstname"
               onChange= {(e)=> setFirstname(e.target.value)}
-              placeholder="First name" />
+               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               <Form.Control.Feedback type="invalid">
                 Please provide a valid email.

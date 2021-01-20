@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
+
 import "firebase/auth";
 import "firebase/firestore";
-import { Avatar } from "@material-ui/core";
+import Avatar from '@material-ui/core/Avatar';
+import { deepOrange, deepPurple } from '@material-ui/core/colors';
 import Render from "./Render";
 import { auth, db } from "./firebase";
 import "./Main.css";
@@ -11,8 +14,25 @@ import "./Home.css";
 import "./Left.css";
 import ImageUpload from "./ImageUpload";
 
-function Home({ user }) {
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: 345,
+  },
+  orange: {
+    color: theme.palette.getContrastText(deepOrange[500]),
+    backgroundColor: deepOrange[500],
+  },
+  purple: {
+    color: theme.palette.getContrastText(deepPurple[500]),
+    backgroundColor: deepPurple[500],
+  },
   
+  
+}));
+function Home({ user }) {
+  const classes = useStyles();
+
   const [posts, setPosts] = useState([]);
   
 
@@ -58,7 +78,7 @@ function Home({ user }) {
 
     <div className="mobile_nav">
       <div className="nav_bar">
-      <Avatar className= "avatar" />
+      <Avatar className= "avatar" className={classes.orange} />
              <h4>{user?.displayName}</h4>
         <i className="fa fa-bars nav_btn"></i>
        </div>
@@ -70,7 +90,8 @@ function Home({ user }) {
       <div className="leftbar-1">
       <img src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGgcI19mU4f72SdJxV-ztMOjzQaUOYbpMFIA&usqp=CAU" 
             alt="" />
-      <Avatar className= "avatar" />
+      <Avatar className= "avatar"  
+      className={classes.orange}/>
              <h4>{user?.displayName}</h4>
              <h5>{user?.email}</h5>
              <p className="view">Who viewed your profile - <span className="ptag">2230</span></p>
@@ -94,13 +115,15 @@ function Home({ user }) {
 
     <div className="content">
     <ImageUpload user={user} />
-    {posts.map((post) => (
-                    <Render
-                      key={post.id}
-                      username={post.data.username}
-                      caption={post.data.caption}
-                      imageUrl = {post.data.imageUrl}
-                    />
+    {posts.map((post, id) => (
+                <Render
+                  key={post.id}
+                  user={user}
+                  postId = {post.id}
+                  username={post.data.username}
+                  caption={post.data.caption}
+                  imageUrl = {post.data.imageUrl}
+                />
 
                   ))}
                   

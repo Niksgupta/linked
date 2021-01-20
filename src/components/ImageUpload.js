@@ -15,7 +15,6 @@ function ImageUpload() {
     const [imageURL, setImageURL] = useState('');
     const [caption, setCaption] = useState('');
     const [progress, setProgress] = useState(0);
-    // const [noLikes, setNoLikes] = useState(0);
     
     const handleChange = (e) => {
         if (e.target.files[0]) {
@@ -28,11 +27,6 @@ function ImageUpload() {
         document.getElementsByClassName('four')[0].click();
     }
 
-    
-
-  
-
-   
 
     const handleUpload = (event) => {
         if (document.getElementsByClassName('hidden')[0]) {
@@ -50,7 +44,6 @@ function ImageUpload() {
                     timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                     caption: caption,
                     imageUrl: "",
-                    // noLikes: noLikes,
                     username: user?.displayName,
                     uid: user?.uid
                 });

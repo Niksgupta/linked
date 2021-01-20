@@ -386,7 +386,7 @@ progress {
   
     display: flex;
     flex-direction: row;
-    margin-left: -10px;
     padding: 5px;
+    margin-left: 6px;
     justify-content: space-evenly;
 }
