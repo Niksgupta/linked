@@ -69,8 +69,7 @@ function Main({user}) {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
 
- 
-  
+    
   const regHome = (event)=>{
     event.preventDefault();
     auth.createUserWithEmailAndPassword(email, password)
